@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class ScreenshotsGameResponse(
 
-	@field:SerializedName("results")
-	val results: List<Image?>? = null
+    @field:SerializedName("results")
+    val results: List<ImageResponse>
 )
 

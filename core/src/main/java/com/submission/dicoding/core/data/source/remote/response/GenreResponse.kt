@@ -2,8 +2,9 @@ package com.submission.dicoding.core.data.source.remote.response
 
 import com.google.gson.annotations.SerializedName
 
-data class Image(
+data class GenreResponse(
 
-    @field:SerializedName("image")
-    val image: String? = null,
+    @field:SerializedName("name")
+    val name: String? = null
 )
+
