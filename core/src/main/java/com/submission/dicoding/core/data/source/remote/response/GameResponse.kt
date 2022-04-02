@@ -22,7 +22,7 @@ data class GameResponse(
     val released: String? = null,
 
     @field:SerializedName("genres")
-    val genreResponses: List<GenreResponse>,
+    val genres: List<GenreResponse>,
 
     @field:SerializedName("parent_platforms")
     val parent_platformResponses: List<PlatformResponse>,

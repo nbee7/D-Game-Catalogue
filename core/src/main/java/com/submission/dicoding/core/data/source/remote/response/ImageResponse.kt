@@ -8,5 +8,5 @@ data class ImageResponse(
     val id: Int,
 
     @field:SerializedName("image")
-    val image: String? = null
+    val image: String
 )

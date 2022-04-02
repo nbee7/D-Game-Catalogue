@@ -16,10 +16,7 @@ class LocalDataSource(
     suspend fun insertScreenshot(image: List<GameScreenshotEntity>) =
         gameScreenshotDao.insertScreenshot(image)
 
-    suspend fun updateGame(game: GameEntity, newState: Boolean) {
-        game.isFavorite = newState
-        gameDao.updateGame(game)
-    }
+    suspend fun updateGame(game: GameEntity) = gameDao.updateGame(game)
 
     fun getListGames(): Flow<List<GameEntity>> = gameDao.getListGames()
 
