@@ -30,6 +30,9 @@ data class GameEntity(
     @ColumnInfo(name = "genre")
     var genre: String,
 
+    @ColumnInfo(name = "platform")
+    var platform: List<String>,
+
     @ColumnInfo(name = "isFavorite")
     var isFavorite: Boolean
 )

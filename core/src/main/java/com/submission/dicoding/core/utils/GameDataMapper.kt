@@ -8,22 +8,23 @@ object GameDataMapper {
 
     fun mapResponsesToEntities(input: List<GameResponse>): List<GameEntity> {
         val gamesList = ArrayList<GameEntity>()
-        input.map {
+        input.map { data ->
             var genre = ""
-            for (i in it.genres.indices) {
-                val itemName = it.genres[i].name
-                genre = if (i == it.genres.lastIndex) {
+            for (i in data.genres.indices) {
+                val itemName = data.genres[i].name
+                genre = if (i == data.genres.lastIndex) {
                     "$genre $itemName"
                 } else "$genre $itemName,"
             }
             val games = GameEntity(
-                id = it.id,
-                name = it.name,
-                image = it.image,
-                rating = it.rating,
-                description = it.description,
-                released = it.released,
+                id = data.id,
+                name = data.name,
+                image = data.image,
+                rating = data.rating,
+                description = data.description,
+                released = data.released,
                 genre = genre,
+                platform = data.parent_platformResponses.mapNotNull { it.name },
                 isFavorite = false
             )
             gamesList.add(games)
@@ -47,6 +48,7 @@ object GameDataMapper {
             description = input.description,
             released = input.released,
             genre = genre,
+            platform = input.parent_platformResponses.mapNotNull { it.name },
             isFavorite = false
         )
     }
@@ -61,6 +63,7 @@ object GameDataMapper {
                 description = it.description,
                 released = it.released,
                 genres = it.genre,
+                platform = it.platform,
                 isFavorite = it.isFavorite
             )
         }
@@ -74,6 +77,7 @@ object GameDataMapper {
             description = input.description,
             released = input.released,
             genres = input.genre,
+            platform = input.platform,
             isFavorite = input.isFavorite
         )
 
@@ -85,6 +89,7 @@ object GameDataMapper {
         description = input.description,
         released = input.released,
         genre = input.genres,
+        platform = input.platform,
         isFavorite = input.isFavorite
     )
 

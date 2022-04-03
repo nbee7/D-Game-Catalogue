@@ -8,5 +8,6 @@ data class Games(
     var description: String?,
     var released: String?,
     val genres: String,
+    val platform: List<String>,
     val isFavorite: Boolean
 )

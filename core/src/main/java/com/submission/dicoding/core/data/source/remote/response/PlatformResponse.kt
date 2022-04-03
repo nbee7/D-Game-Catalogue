@@ -4,6 +4,6 @@ import com.google.gson.annotations.SerializedName
 
 data class PlatformResponse(
 
-    @field:SerializedName("id")
-    val id: Int? = null
+    @field:SerializedName("slug")
+    val name: String? = null
 )

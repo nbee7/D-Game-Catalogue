@@ -13,7 +13,7 @@ import com.submission.dicoding.core.utils.GameScreenshotDataMapper
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class GameRepository(
+class GamesRepository(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource
 ) : IGamesRepository {
