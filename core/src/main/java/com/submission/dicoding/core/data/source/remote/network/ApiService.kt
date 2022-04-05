@@ -3,7 +3,6 @@ package com.submission.dicoding.core.data.source.remote.network
 import com.submission.dicoding.core.BuildConfig
 import com.submission.dicoding.core.data.source.remote.response.GameResponse
 import com.submission.dicoding.core.data.source.remote.response.ListGamesResponse
-import com.submission.dicoding.core.data.source.remote.response.ScreenshotsGameResponse
 import com.submission.dicoding.core.utils.Constant
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -28,10 +27,5 @@ interface ApiService {
         @Path("id") id: Int,
         @Query("key") key: String = BuildConfig.API_KEY
     ): GameResponse
-
-    @GET("games/{id}/screenshots")
-    suspend fun getGameScreenshot(
-        @Path("id") id: Int
-    ): ScreenshotsGameResponse
 
 }

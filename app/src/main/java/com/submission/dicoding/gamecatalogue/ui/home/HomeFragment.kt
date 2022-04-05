@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.submission.dicoding.core.data.Resource
 import com.submission.dicoding.core.domain.model.Games
@@ -42,7 +43,6 @@ class HomeFragment : Fragment(), ItemClickCallback {
                     when (game) {
                         is Resource.Loading -> showLoading(true)
                         is Resource.Success -> {
-                            showLoading(false)
                             game.data?.let { setRecycleview(it) }
                         }
                         is Resource.Error -> {
@@ -90,7 +90,8 @@ class HomeFragment : Fragment(), ItemClickCallback {
     }
 
     override fun onItemclicked(id: Int) {
-        TODO("Not yet implemented")
+        val action = HomeFragmentDirections.actionHomeFragmentToDetailGameFragment(id)
+        findNavController().navigate(action)
     }
 
 

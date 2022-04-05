@@ -39,6 +39,8 @@ class GameAdapter(val callback: ItemClickCallback? = null) :
                     R.drawable.ic_baseline_broken_image_24
                 )
                 tvName.text = data.name
+                tvRating.text = data.rating.toString()
+
 
                 val isPcGame = data.platform.any { it == "pc" }
                 val isPsGame = data.platform.any { it == "playstation" }

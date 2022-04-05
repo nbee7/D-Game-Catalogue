@@ -9,10 +9,24 @@
         android:id="@+id/homeFragment"
         android:name="com.submission.dicoding.gamecatalogue.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_detailGameFragment"
+            app:destination="@id/detailGameFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchGameFragment"
         android:name="com.submission.dicoding.gamecatalogue.ui.search.SearchGameFragment"
         android:label="fragment_search_game"
         tools:layout="@layout/fragment_search_game" />
+    <fragment
+        android:id="@+id/detailGameFragment"
+        android:name="com.submission.dicoding.gamecatalogue.ui.detail.DetailGameFragment"
+        android:label="fragment_detail_game"
+        tools:layout="@layout/fragment_detail_game">
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="3498" />
+    </fragment>
 </navigation>

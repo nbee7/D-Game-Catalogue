@@ -43,7 +43,6 @@ val networkModule = module {
 
 val databaseModule = module {
     factory { get<GameDatabase>().gameDao() }
-    factory { get<GameDatabase>().gameScreenshotDao() }
     single {
         Room.databaseBuilder(
             androidContext(),
@@ -53,7 +52,7 @@ val databaseModule = module {
 }
 
 val repositoryModule = module {
-    single { LocalDataSource(get(), get()) }
+    single { LocalDataSource(get()) }
     single { RemoteDataSource(get()) }
     single<IGamesRepository> { GamesRepository(get(), get()) }
 }

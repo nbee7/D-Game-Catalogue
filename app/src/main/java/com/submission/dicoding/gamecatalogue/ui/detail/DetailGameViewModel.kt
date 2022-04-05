@@ -8,6 +8,4 @@ class DetailGameViewModel(private val gamesUseCase: GamesUseCase) : ViewModel() 
 
     fun getDetailGame(id: Int) = gamesUseCase.getDetailGames(id).asLiveData()
 
-    fun getImageGame(id: Int) = gamesUseCase.getAllScreenshotByGame(id).asLiveData()
-
 }

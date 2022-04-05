@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">D-Game Catalogue</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="description">Description</string>
     <string name="released">Released</string>
     <string name="favorites">Favorites</string>
     <string name="home">Home</string>
     <string name="discover">Discover</string>
+    <string name="rating">%s / 5</string>
 </resources>
