@@ -24,7 +24,7 @@ object GameDataMapper {
                 description = data.description,
                 released = data.released,
                 genre = genre,
-                platform = data.parent_platformResponses.mapNotNull { it.name },
+                platform = data.platforms.mapNotNull { it.platform.slug },
                 isFavorite = false
             )
             gamesList.add(games)
@@ -48,7 +48,7 @@ object GameDataMapper {
             description = input.description,
             released = input.released,
             genre = genre,
-            platform = input.parent_platformResponses.mapNotNull { it.name },
+            platform = input.platforms.mapNotNull { it.platform.slug },
             isFavorite = false
         )
     }

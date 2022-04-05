@@ -12,7 +12,7 @@ data class GameEntity(
     @ColumnInfo(name = "id")
     val id: Int,
 
-    @ColumnInfo(name = "name")
+    @ColumnInfo(name = "slug")
     val name: String,
 
     @ColumnInfo(name = "image")
@@ -30,7 +30,7 @@ data class GameEntity(
     @ColumnInfo(name = "genre")
     var genre: String,
 
-    @ColumnInfo(name = "platform")
+    @ColumnInfo(name = "platforms")
     var platform: List<String>,
 
     @ColumnInfo(name = "isFavorite")

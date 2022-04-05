@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class GenreResponse(
 
-    @field:SerializedName("name")
+    @field:SerializedName("slug")
     val name: String? = null
 )
 

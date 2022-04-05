@@ -4,6 +4,12 @@ import com.google.gson.annotations.SerializedName
 
 data class PlatformResponse(
 
-    @field:SerializedName("slug")
-    val name: String? = null
+    @field:SerializedName("platform")
+    val platform: PlatformItem
 )
+
+class PlatformItem(
+    @SerializedName("slug")
+    val slug: String
+)
+
