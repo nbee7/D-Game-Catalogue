@@ -10,6 +10,7 @@ import androidx.navigation.fragment.navArgs
 import com.submission.dicoding.core.data.Resource
 import com.submission.dicoding.core.domain.model.Games
 import com.submission.dicoding.core.utils.gone
+import com.submission.dicoding.core.utils.setImageUrl
 import com.submission.dicoding.core.utils.visible
 import com.submission.dicoding.gamecatalogue.R
 import com.submission.dicoding.gamecatalogue.databinding.FragmentDetailGameBinding
@@ -59,6 +60,14 @@ class DetailGameFragment : Fragment() {
 
     private fun showData(game: Games) {
         binding?.apply {
+            activity?.let {
+                ivImage.setImageUrl(
+                    it,
+                    game.image,
+                    pbImage,
+                    com.submission.dicoding.core.R.drawable.ic_baseline_broken_image_24
+                )
+            }
             tvTittle.text = game.name
             tvGenres.text = game.genres
             tvRating.text = resources.getString(R.string.rating, game.rating.toString())
@@ -69,7 +78,6 @@ class DetailGameFragment : Fragment() {
 
     private fun showLoading(state: Boolean) {
         if (state) {
-            binding?.rvScreenshots?.gone()
             binding?.pbUser?.visible()
         } else {
             binding?.pbUser?.gone()

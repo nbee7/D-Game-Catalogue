@@ -10,4 +10,10 @@ interface IGamesRepository {
 
     fun getDetailGames(id: Int): Flow<Resource<Games>>
 
+    fun getFavoriteGames(): Flow<List<Games>>
+
+    fun getSearchGames(name: String): Flow<Resource<List<Games>>>
+
+    suspend fun setFavoriteGame(game: Games, state: Boolean)
+
 }

@@ -18,4 +18,10 @@ interface GameDao {
 
     @Query("SELECT * FROM table_game WHERE id = :id")
     fun getDetailGame(id: Int): Flow<GameEntity>
+
+    @Query("SELECT * FROM table_game WHERE slug LIKE :name")
+    fun getSearchGame(name: String): Flow<List<GameEntity>>
+
+    @Query("SELECT * FROM table_game WHERE isFavorite = 1")
+    fun getFavoriteGames(): Flow<List<GameEntity>>
 }

@@ -12,6 +12,7 @@ interface ApiService {
     @GET("games")
     suspend fun getListGames(
         @Query("page_size") size: Int = Constant.PAGE_SIZE,
+        @Query("ordering") ordering: String = Constant.ORDERING,
         @Query("key") key: String = BuildConfig.API_KEY
     ): ListGamesResponse
 
