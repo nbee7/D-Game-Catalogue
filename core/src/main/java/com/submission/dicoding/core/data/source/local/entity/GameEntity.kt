@@ -16,7 +16,7 @@ data class GameEntity(
     val name: String,
 
     @ColumnInfo(name = "image")
-    var image: String,
+    var image: String? = null,
 
     @ColumnInfo(name = "rating")
     var rating: Double,

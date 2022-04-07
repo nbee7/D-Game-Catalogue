@@ -6,6 +6,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.submission.dicoding.core.utils.gone
+import com.submission.dicoding.core.utils.visible
 import com.submission.dicoding.gamecatalogue.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -23,6 +25,12 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 
         val navController = navHostFragment.navController
+
+        navController.addOnDestinationChangedListener { _, dest, _ ->
+            if (dest.id != R.id.homeFragment && dest.id != R.id.favoriteGamesFragment && dest.id != R.id.searchGameFragment)
+                navView.gone()
+            else navView.visible()
+        }
         navView.setupWithNavController(navController)
     }
 

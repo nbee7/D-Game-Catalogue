@@ -8,4 +8,8 @@
         android:id="@+id/searchGameFragment"
         android:icon="@drawable/ic_baseline_search_24"
         android:title="@string/discover" />
+    <item
+        android:id="@+id/favoriteGamesFragment"
+        android:icon="@drawable/ic_favorited"
+        android:title="@string/Favorite" />
 </menu>

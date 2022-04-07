@@ -55,8 +55,8 @@ class HomeFragment : Fragment(), ItemClickCallback {
         }
     }
 
-    private fun setRecycleview(listUser: List<Games>) {
-        if (listUser.isNullOrEmpty()) {
+    private fun setRecycleview(listGame: List<Games>) {
+        if (listGame.isNullOrEmpty()) {
             showLoading(false)
             binding?.rvListGame?.gone()
             binding?.tvEmpty?.visible()
@@ -65,7 +65,7 @@ class HomeFragment : Fragment(), ItemClickCallback {
             binding?.tvEmpty?.gone()
             binding?.rvListGame?.visible()
             val gameAdapter = GameAdapter(this)
-            gameAdapter.submitList(listUser)
+            gameAdapter.submitList(listGame)
             binding?.rvListGame?.apply {
                 layoutManager =
                     LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
@@ -90,7 +90,7 @@ class HomeFragment : Fragment(), ItemClickCallback {
     }
 
     override fun onItemclicked(id: Int) {
-        val action = HomeFragmentDirections.actionHomeFragmentToDetailGameFragment(id)
+        val action = HomeFragmentDirections.actionToDetail(id)
         findNavController().navigate(action)
     }
 

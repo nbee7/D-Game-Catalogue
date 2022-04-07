@@ -12,6 +12,9 @@ class GamesInteractor(private val gamesRepository: IGamesRepository) : GamesUseC
     override fun getDetailGames(id: Int): Flow<Resource<Games>> =
         gamesRepository.getDetailGames(id)
 
+    override fun getDetailGamesFromSearch(id: Int): Flow<Resource<Games>> =
+        gamesRepository.getDetailGamesFromsearch(id)
+
     override fun getFavoriteGames(): Flow<List<Games>> =
         gamesRepository.getFavoriteGames()
 
@@ -20,5 +23,9 @@ class GamesInteractor(private val gamesRepository: IGamesRepository) : GamesUseC
 
     override suspend fun setFavoriteGame(game: Games, state: Boolean) =
         gamesRepository.setFavoriteGame(game, state)
+
+    override suspend fun insertGameFromSearch(game: Games, state: Boolean) {
+        gamesRepository.insertGameFromSearch(game, state)
+    }
 
 }

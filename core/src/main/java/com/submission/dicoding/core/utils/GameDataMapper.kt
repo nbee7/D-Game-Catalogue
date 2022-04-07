@@ -3,6 +3,8 @@ package com.submission.dicoding.core.utils
 import com.submission.dicoding.core.data.source.local.entity.GameEntity
 import com.submission.dicoding.core.data.source.remote.response.GameResponse
 import com.submission.dicoding.core.domain.model.Games
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOf
 
 object GameDataMapper {
 
@@ -24,7 +26,7 @@ object GameDataMapper {
                 description = data.description,
                 released = data.released,
                 genre = genre,
-                platform = data.platforms.mapNotNull { it.platform.slug },
+                platform = data.platforms.map { it.platform.slug },
                 isFavorite = false
             )
             gamesList.add(games)
@@ -48,7 +50,7 @@ object GameDataMapper {
             description = input.description,
             released = input.released,
             genre = genre,
-            platform = input.platforms.mapNotNull { it.platform.slug },
+            platform = input.platforms.map { it.platform.slug },
             isFavorite = false
         )
     }
@@ -92,5 +94,53 @@ object GameDataMapper {
         platform = input.platform,
         isFavorite = input.isFavorite
     )
+
+    fun mapResponsesToDomain(input: List<GameResponse>): Flow<List<Games>> {
+        val gamesList = ArrayList<Games>()
+        input.map { data ->
+            var genre = ""
+            for (i in data.genres.indices) {
+                val itemName = data.genres[i].name
+                genre = if (i == data.genres.lastIndex) {
+                    "$genre $itemName"
+                } else "$genre $itemName,"
+            }
+            val games = Games(
+                id = data.id,
+                name = data.name,
+                image = data.image,
+                rating = data.rating,
+                description = data.description,
+                released = data.released,
+                genres = genre,
+                platform = data.platforms.map { it.platform.slug },
+                isFavorite = false
+            )
+            gamesList.add(games)
+        }
+        return flowOf(gamesList)
+    }
+
+    fun mapResponsesToDomain(input: GameResponse): Flow<Games> {
+        var genre = ""
+        for (i in input.genres.indices) {
+            val itemName = input.genres[i].name
+            genre = if (i == input.genres.lastIndex) {
+                "$genre $itemName"
+            } else "$genre $itemName,"
+        }
+        val games = Games(
+            id = input.id,
+            name = input.name,
+            image = input.image,
+            rating = input.rating,
+            description = input.description,
+            released = input.released,
+            genres = genre,
+            platform = input.platforms.map { it.platform.slug },
+            isFavorite = false
+        )
+        return flowOf(games)
+    }
 
 }

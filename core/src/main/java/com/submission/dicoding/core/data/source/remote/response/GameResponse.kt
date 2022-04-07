@@ -4,13 +4,13 @@ import com.google.gson.annotations.SerializedName
 
 data class GameResponse(
     @field:SerializedName("id")
-	val id: Int,
+    val id: Int,
 
     @field:SerializedName("name")
-	val name: String,
+    val name: String,
 
     @field:SerializedName("background_image")
-	val image: String,
+    val image: String? = null,
 
     @field:SerializedName("rating")
     val rating: Double,

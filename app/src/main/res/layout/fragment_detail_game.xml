@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,148 +7,175 @@
     android:background="@color/gray_dark"
     tools:context=".ui.detail.DetailGameFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp">
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/btn_back"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_back"
-            android:layout_marginStart="8dp"
-            android:backgroundTint="@color/transparent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ProgressBar
-            android:id="@+id/pb_image"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="12dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_back" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_image"
-            android:layout_width="300dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="12dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_back" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_tittle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="8dp"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_image"
-            tools:text="Grand Theft Auto V" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ic_rating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:src="@drawable/ic_star"
-            app:layout_constraintEnd_toStartOf="@id/tv_rating"
-            app:layout_constraintTop_toBottomOf="@+id/iv_image" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_rating"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            tools:text="5 / 5"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@+id/ic_rating"
-            app:layout_constraintTop_toBottomOf="@+id/iv_image" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_genres"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp"
-            android:textSize="14sp"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_tittle"
-            tools:text="Action, Open World" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/txt_released"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="8dp"
-            android:textSize="16sp"
-            android:textColor="@color/white"
-            app:layout_constraintTop_toBottomOf="@+id/tv_genres"
-            app:layout_constraintStart_toStartOf="parent"
-            android:text="@string/released" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_released"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp"
-            android:textSize="14sp"
-            android:textColor="@color/white"
-            app:layout_constraintTop_toBottomOf="@+id/txt_released"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="25-12-2014" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/txt_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="8dp"
-            android:textSize="16sp"
-            android:textColor="@color/white"
-            android:text="@string/description"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_released" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:textSize="14sp"
-            android:textColor="@color/white"
-            tools:text="@tools:sample/lorem/random"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_description" />
-
-        <ProgressBar
-            android:id="@+id/pb_user"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="@color/transparent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/pb_image"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/tv_tittle"
+                app:layout_constraintTop_toBottomOf="@+id/btn_back" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_image"
+                android:layout_width="300dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_back" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_tittle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_image"
+                tools:text="Grand Theft Auto V" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ic_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_star"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_tittle" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_rating"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                tools:text="5 / 5"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@id/ic_rating"
+                app:layout_constraintBottom_toBottomOf="@+id/ic_rating"
+                app:layout_constraintTop_toBottomOf="@+id/tv_tittle" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_genres"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_rating"
+                tools:text="Action, Open World" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_released"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/tv_genres"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/released" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_released"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/txt_released"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="25-12-2014" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:text="@string/description"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_released" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                tools:text="@tools:sample/lorem/random"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_description" />
+
+            <ProgressBar
+                android:id="@+id/pb_user"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_favorite"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/add_favorite" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

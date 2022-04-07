@@ -11,14 +11,18 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_homeFragment_to_detailGameFragment"
+            android:id="@+id/action_to_detail"
             app:destination="@id/detailGameFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchGameFragment"
         android:name="com.submission.dicoding.gamecatalogue.ui.search.SearchGameFragment"
         android:label="fragment_search_game"
-        tools:layout="@layout/fragment_search_game" />
+        tools:layout="@layout/fragment_search_game">
+        <action
+            android:id="@+id/action_to_detail"
+            app:destination="@id/detailGameFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailGameFragment"
         android:name="com.submission.dicoding.gamecatalogue.ui.detail.DetailGameFragment"
@@ -28,5 +32,19 @@
             android:name="id"
             app:argType="integer"
             android:defaultValue="3498" />
+        <argument
+            android:name="type"
+            app:argType="string"
+            android:defaultValue="default" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteGamesFragment"
+        android:name="com.submission.dicoding.favorite.FavoriteGamesFragment"
+        app:moduleName="favorite"
+        android:label="fragment_favorite_games"
+        tools:layout="@layout/fragment_favorite_games">
+        <action
+            android:id="@+id/action_to_detail"
+            app:destination="@id/detailGameFragment" />
     </fragment>
 </navigation>

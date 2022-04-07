@@ -10,6 +10,9 @@ interface GameDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertGame(games: List<GameEntity>)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertGameFromSearch(games: GameEntity)
+
     @Update
     suspend fun updateGame(game: GameEntity)
 
