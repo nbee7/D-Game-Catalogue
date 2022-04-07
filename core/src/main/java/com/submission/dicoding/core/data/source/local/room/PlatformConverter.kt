@@ -6,7 +6,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 class PlatformConverter {
-    @TypeConverter // note this annotation
+    @TypeConverter
     fun fromStringList(optionValues: List<String?>?): String? {
         if (optionValues == null) {
             return null
@@ -17,7 +17,7 @@ class PlatformConverter {
         return gson.toJson(optionValues, type)
     }
 
-    @TypeConverter // note this annotation
+    @TypeConverter
     fun toStringList(optionValuesString: String?): List<String?>? {
         if (optionValuesString == null) {
             return null

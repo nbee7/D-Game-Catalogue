@@ -46,11 +46,9 @@ class FavoriteGamesFragment : Fragment(), ItemClickCallback {
         if (activity != null) {
             favoriteViewModel.favoriteGames.observe(viewLifecycleOwner) { game ->
                 if (game.isNullOrEmpty()) {
-                    showLoading(false)
                     binding?.rvListGame?.gone()
                     binding?.tvEmpty?.visible()
                 } else {
-                    showLoading(false)
                     binding?.tvEmpty?.gone()
                     binding?.rvListGame?.visible()
                     gameAdapter.submitList(game)
@@ -59,18 +57,13 @@ class FavoriteGamesFragment : Fragment(), ItemClickCallback {
         }
     }
 
-    private fun showLoading(state: Boolean) {
-        if (state) {
-            binding?.rvListGame?.gone()
-            binding?.pbUser?.visible()
-            binding?.tvEmpty?.gone()
-        } else {
-            binding?.pbUser?.gone()
-        }
-    }
-
     override fun onItemclicked(id: Int) {
         val action = FavoriteGamesFragmentDirections.actionToDetail(id)
         findNavController().navigate(action)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

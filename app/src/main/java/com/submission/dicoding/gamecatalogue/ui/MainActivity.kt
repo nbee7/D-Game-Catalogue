@@ -1,4 +1,4 @@
-package com.submission.dicoding.gamecatalogue
+package com.submission.dicoding.gamecatalogue.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +8,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.submission.dicoding.core.utils.gone
 import com.submission.dicoding.core.utils.visible
+import com.submission.dicoding.gamecatalogue.R
 import com.submission.dicoding.gamecatalogue.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

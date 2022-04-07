@@ -26,5 +26,4 @@ data class GameResponse(
 
     @field:SerializedName("parent_platforms")
     val platforms: List<PlatformResponse>
-
     )
