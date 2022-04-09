@@ -9,6 +9,8 @@ import com.submission.dicoding.core.data.source.remote.RemoteDataSource
 import com.submission.dicoding.core.data.source.remote.network.ApiService
 import com.submission.dicoding.core.domain.repository.IGamesRepository
 import com.submission.dicoding.core.utils.Constant.CONNECTION_TIMEOUT
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -44,10 +46,12 @@ val networkModule = module {
 val databaseModule = module {
     factory { get<GameDatabase>().gameDao() }
     single {
+        val passphrase: ByteArray = SQLiteDatabase.getBytes("dicoding".toCharArray())
+        val factory = SupportFactory(passphrase)
         Room.databaseBuilder(
             androidContext(),
             GameDatabase::class.java, "GameDatabase"
-        ).fallbackToDestructiveMigration().build()
+        ).fallbackToDestructiveMigration().openHelperFactory(factory).build()
     }
 }
 
