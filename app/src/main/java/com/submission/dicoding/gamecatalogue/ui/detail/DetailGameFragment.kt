@@ -10,11 +10,12 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.submission.dicoding.core.data.Resource
 import com.submission.dicoding.core.domain.model.Games
-import com.submission.dicoding.core.utils.gone
-import com.submission.dicoding.core.utils.setImageUrl
-import com.submission.dicoding.core.utils.visible
 import com.submission.dicoding.gamecatalogue.R
 import com.submission.dicoding.gamecatalogue.databinding.FragmentDetailGameBinding
+import com.submission.dicoding.gamecatalogue.utils.gone
+import com.submission.dicoding.gamecatalogue.utils.setImageUrl
+import com.submission.dicoding.gamecatalogue.utils.visible
+import leakcanary.ToastEventListener
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class DetailGameFragment : Fragment() {
@@ -23,6 +24,7 @@ class DetailGameFragment : Fragment() {
     private val detailGameFragmentArgs: DetailGameFragmentArgs by navArgs()
     private var _binding: FragmentDetailGameBinding? = null
     private val binding get() = _binding
+    private var toast: Toast? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -102,21 +104,21 @@ class DetailGameFragment : Fragment() {
                 if (isFavorite) {
                     isFavorite = !isFavorite
                     detailGameViewModel.setFavoriteGame(game, isFavorite)
-                    Toast.makeText(
-                        activity,
+                    toast = Toast.makeText(
+                        context,
                         getString(R.string.message_remove_favorite),
                         Toast.LENGTH_SHORT
                     )
-                        .show()
+                    toast?.show()
                 } else {
                     isFavorite = !isFavorite
                     detailGameViewModel.setFavoriteGame(game, isFavorite)
-                    Toast.makeText(
-                        activity,
+                    toast = Toast.makeText(
+                        context,
                         getString(R.string.message_add_favorite),
                         Toast.LENGTH_SHORT
                     )
-                        .show()
+                    toast?.show()
                 }
             }
         }
@@ -145,22 +147,22 @@ class DetailGameFragment : Fragment() {
                     isFavorite = !isFavorite
                     setFavorite(isFavorite)
                     detailGameViewModel.insertGameFromSearch(game, isFavorite)
-                    Toast.makeText(
-                        activity,
+                    toast = Toast.makeText(
+                        context,
                         getString(R.string.message_remove_favorite),
                         Toast.LENGTH_SHORT
                     )
-                        .show()
+                    toast?.show()
                 } else {
                     isFavorite = !isFavorite
                     setFavorite(isFavorite)
                     detailGameViewModel.insertGameFromSearch(game, isFavorite)
-                    Toast.makeText(
-                        activity,
+                    toast = Toast.makeText(
+                        context,
                         getString(R.string.message_add_favorite),
                         Toast.LENGTH_SHORT
                     )
-                        .show()
+                    toast?.show()
                 }
             }
         }
@@ -175,7 +177,13 @@ class DetailGameFragment : Fragment() {
     }
 
     private fun showError(message: String?) {
-        Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
+        if (toast != null) {
+            toast?.cancel()
+        } else {
+            toast = Toast.makeText(context, message, Toast.LENGTH_SHORT)
+            toast?.show()
+            ToastEventListener
+        }
     }
 
     private fun setFavorite(state: Boolean) {
@@ -198,8 +206,18 @@ class DetailGameFragment : Fragment() {
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        if (toast != null) {
+            toast?.cancel()
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        if (toast != null) {
+            toast?.cancel()
+        }
     }
 }

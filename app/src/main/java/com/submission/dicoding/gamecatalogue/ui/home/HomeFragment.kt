@@ -10,17 +10,19 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.submission.dicoding.core.data.Resource
 import com.submission.dicoding.core.domain.model.Games
-import com.submission.dicoding.core.utils.ItemClickCallback
-import com.submission.dicoding.core.utils.gone
-import com.submission.dicoding.core.utils.visible
 import com.submission.dicoding.gamecatalogue.databinding.FragmentHomeBinding
 import com.submission.dicoding.gamecatalogue.ui.adapter.GameAdapter
+import com.submission.dicoding.gamecatalogue.utils.ItemClickCallback
+import com.submission.dicoding.gamecatalogue.utils.gone
+import com.submission.dicoding.gamecatalogue.utils.visible
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
 class HomeFragment : Fragment(), ItemClickCallback {
 
     private val homeViewModel: HomeViewModel by viewModel()
+
+    private var toast: Toast? = null
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding
@@ -86,7 +88,12 @@ class HomeFragment : Fragment(), ItemClickCallback {
     }
 
     private fun showError(message: String?) {
-        Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
+        if (toast != null) {
+            toast?.cancel()
+        } else {
+            toast = Toast.makeText(context, message, Toast.LENGTH_SHORT)
+            toast?.show()
+        }
     }
 
     override fun onItemClicked(id: Int) {
@@ -94,9 +101,18 @@ class HomeFragment : Fragment(), ItemClickCallback {
         findNavController().navigate(action)
     }
 
+    override fun onStop() {
+        super.onStop()
+        if (toast != null) {
+            toast?.cancel()
+        }
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        if (toast != null) {
+            toast?.cancel()
+        }
     }
 }

@@ -1,4 +1,4 @@
-package com.submission.dicoding.core.utils
+package com.submission.dicoding.gamecatalogue.utils
 
 interface ItemClickCallback {
 
