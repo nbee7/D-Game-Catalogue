@@ -8,12 +8,13 @@ plugins {
 apply from: '../shared_dependencies.gradle'
 
 android {
-    compileSdk 32
+    compileSdk 31
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.submission.dicoding.gamecatalogue"
         minSdk 21
-        targetSdk 32
+        targetSdk 31
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
