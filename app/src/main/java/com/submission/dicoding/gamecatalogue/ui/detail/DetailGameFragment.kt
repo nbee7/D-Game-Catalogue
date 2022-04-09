@@ -15,7 +15,6 @@ import com.submission.dicoding.gamecatalogue.databinding.FragmentDetailGameBindi
 import com.submission.dicoding.gamecatalogue.utils.gone
 import com.submission.dicoding.gamecatalogue.utils.setImageUrl
 import com.submission.dicoding.gamecatalogue.utils.visible
-import leakcanary.ToastEventListener
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class DetailGameFragment : Fragment() {
@@ -182,7 +181,6 @@ class DetailGameFragment : Fragment() {
         } else {
             toast = Toast.makeText(context, message, Toast.LENGTH_SHORT)
             toast?.show()
-            ToastEventListener
         }
     }
 
