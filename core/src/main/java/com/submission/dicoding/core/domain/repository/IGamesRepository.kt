@@ -10,7 +10,7 @@ interface IGamesRepository {
 
     fun getDetailGames(id: Int): Flow<Resource<Games>>
 
-    fun getDetailGamesFromsearch(id: Int): Flow<Resource<Games>>
+    fun getDetailGamesFromSearch(id: Int): Flow<Resource<Games>>
 
     fun getFavoriteGames(): Flow<List<Games>>
 

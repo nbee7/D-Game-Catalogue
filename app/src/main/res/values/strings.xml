@@ -12,6 +12,6 @@
     <string name="Favorite">Favorite</string>
     <string name="txt_search_game">Search Game</string>
     <string name="data_empty">Data Empty</string>
-    <string name="message_add_favorite">Succes Add Game to Favorite</string>
-    <string name="message_remove_favorite">Succes Remove Game From Favorite</string>
+    <string name="message_add_favorite">Success Add Game to Favorite</string>
+    <string name="message_remove_favorite">Success Remove Game From Favorite</string>
 </resources>

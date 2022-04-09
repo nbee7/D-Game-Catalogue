@@ -57,7 +57,7 @@ class FavoriteGamesFragment : Fragment(), ItemClickCallback {
         }
     }
 
-    override fun onItemclicked(id: Int) {
+    override fun onItemClicked(id: Int) {
         val action = FavoriteGamesFragmentDirections.actionToDetail(id)
         findNavController().navigate(action)
     }

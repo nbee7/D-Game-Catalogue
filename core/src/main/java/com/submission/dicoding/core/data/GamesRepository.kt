@@ -58,7 +58,7 @@ class GamesRepository(
 
         }.asFlow()
 
-    override fun getDetailGamesFromsearch(id: Int): Flow<Resource<Games>> {
+    override fun getDetailGamesFromSearch(id: Int): Flow<Resource<Games>> {
         return flow {
             emit(Resource.Loading())
             when (val response = remoteDataSource.getDetailGame(id).first()) {

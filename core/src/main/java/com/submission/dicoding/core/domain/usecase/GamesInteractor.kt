@@ -13,7 +13,7 @@ class GamesInteractor(private val gamesRepository: IGamesRepository) : GamesUseC
         gamesRepository.getDetailGames(id)
 
     override fun getDetailGamesFromSearch(id: Int): Flow<Resource<Games>> =
-        gamesRepository.getDetailGamesFromsearch(id)
+        gamesRepository.getDetailGamesFromSearch(id)
 
     override fun getFavoriteGames(): Flow<List<Games>> =
         gamesRepository.getFavoriteGames()

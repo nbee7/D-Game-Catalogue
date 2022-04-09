@@ -144,7 +144,7 @@ class DetailGameFragment : Fragment() {
                 if (isFavorite) {
                     isFavorite = !isFavorite
                     setFavorite(isFavorite)
-                    detailGameViewModel.inserGameFromSearch(game, isFavorite)
+                    detailGameViewModel.insertGameFromSearch(game, isFavorite)
                     Toast.makeText(
                         activity,
                         getString(R.string.message_remove_favorite),
@@ -154,7 +154,7 @@ class DetailGameFragment : Fragment() {
                 } else {
                     isFavorite = !isFavorite
                     setFavorite(isFavorite)
-                    detailGameViewModel.inserGameFromSearch(game, isFavorite)
+                    detailGameViewModel.insertGameFromSearch(game, isFavorite)
                     Toast.makeText(
                         activity,
                         getString(R.string.message_add_favorite),

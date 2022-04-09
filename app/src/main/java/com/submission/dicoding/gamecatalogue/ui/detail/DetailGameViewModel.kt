@@ -13,7 +13,7 @@ class DetailGameViewModel(private val gamesUseCase: GamesUseCase) : ViewModel() 
 
     fun getDetailGameFromSearch(id: Int) = gamesUseCase.getDetailGamesFromSearch(id).asLiveData()
 
-    fun inserGameFromSearch(game: Games, state: Boolean) {
+    fun insertGameFromSearch(game: Games, state: Boolean) {
         viewModelScope.launch {
             gamesUseCase.insertGameFromSearch(game, state)
         }

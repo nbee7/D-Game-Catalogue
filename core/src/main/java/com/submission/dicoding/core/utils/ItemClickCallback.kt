@@ -2,6 +2,6 @@ package com.submission.dicoding.core.utils
 
 interface ItemClickCallback {
 
-    fun onItemclicked(id: Int)
+    fun onItemClicked(id: Int)
 
 }

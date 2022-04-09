@@ -31,7 +31,7 @@ class GameAdapter(val callback: ItemClickCallback? = null) :
     inner class VerticalViewHolder(private val binding: ItemGameBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: Games) {
-            with(binding) {
+            binding.apply {
                 ivGame.setImageUrl(
                     itemView.context,
                     data.image,
@@ -53,7 +53,7 @@ class GameAdapter(val callback: ItemClickCallback? = null) :
                 nintendoPlatformIcon.setVisibility(isNintendoGame)
 
                 itemView.setOnClickListener {
-                    callback?.onItemclicked(data.id)
+                    callback?.onItemClicked(data.id)
                 }
             }
         }

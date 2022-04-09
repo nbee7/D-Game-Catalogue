@@ -47,7 +47,7 @@ class SearchGameFragment : Fragment(), ItemClickCallback {
                                 when (game) {
                                     is Resource.Loading -> showLoading(true)
                                     is Resource.Success -> {
-                                        game.data?.let { setRecycleview(it) }
+                                        game.data?.let { setRecyclerview(it) }
                                     }
                                     is Resource.Error -> {
                                         showLoading(false)
@@ -67,7 +67,7 @@ class SearchGameFragment : Fragment(), ItemClickCallback {
         }
     }
 
-    private fun setRecycleview(listGame: List<Games>) {
+    private fun setRecyclerview(listGame: List<Games>) {
         if (listGame.isNullOrEmpty()) {
             showLoading(false)
             binding?.rvSearchGame?.gone()
@@ -101,7 +101,7 @@ class SearchGameFragment : Fragment(), ItemClickCallback {
         Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
     }
 
-    override fun onItemclicked(id: Int) {
+    override fun onItemClicked(id: Int) {
         val action = SearchGameFragmentDirections.actionToDetail(id, "search")
         findNavController().navigate(action)
     }

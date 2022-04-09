@@ -43,7 +43,7 @@ class HomeFragment : Fragment(), ItemClickCallback {
                     when (game) {
                         is Resource.Loading -> showLoading(true)
                         is Resource.Success -> {
-                            game.data?.let { setRecycleview(it) }
+                            game.data?.let { setRecyclerview(it) }
                         }
                         is Resource.Error -> {
                             showLoading(false)
@@ -55,7 +55,7 @@ class HomeFragment : Fragment(), ItemClickCallback {
         }
     }
 
-    private fun setRecycleview(listGame: List<Games>) {
+    private fun setRecyclerview(listGame: List<Games>) {
         if (listGame.isNullOrEmpty()) {
             showLoading(false)
             binding?.rvListGame?.gone()
@@ -89,7 +89,7 @@ class HomeFragment : Fragment(), ItemClickCallback {
         Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
     }
 
-    override fun onItemclicked(id: Int) {
+    override fun onItemClicked(id: Int) {
         val action = HomeFragmentDirections.actionToDetail(id)
         findNavController().navigate(action)
     }
