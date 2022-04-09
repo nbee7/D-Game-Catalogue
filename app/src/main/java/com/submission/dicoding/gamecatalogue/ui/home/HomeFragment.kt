@@ -10,11 +10,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.submission.dicoding.core.data.Resource
 import com.submission.dicoding.core.domain.model.Games
-import com.submission.dicoding.core.ui.GameAdapter
 import com.submission.dicoding.core.utils.ItemClickCallback
 import com.submission.dicoding.core.utils.gone
 import com.submission.dicoding.core.utils.visible
 import com.submission.dicoding.gamecatalogue.databinding.FragmentHomeBinding
+import com.submission.dicoding.gamecatalogue.ui.adapter.GameAdapter
 import org.koin.android.viewmodel.ext.android.viewModel
 
 

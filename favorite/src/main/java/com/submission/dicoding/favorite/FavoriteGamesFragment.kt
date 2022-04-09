@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.submission.dicoding.core.ui.GameAdapter
 import com.submission.dicoding.core.utils.ItemClickCallback
 import com.submission.dicoding.core.utils.gone
 import com.submission.dicoding.core.utils.visible
 import com.submission.dicoding.favorite.databinding.FragmentFavoriteGamesBinding
+import com.submission.dicoding.gamecatalogue.ui.adapter.GameAdapter
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 

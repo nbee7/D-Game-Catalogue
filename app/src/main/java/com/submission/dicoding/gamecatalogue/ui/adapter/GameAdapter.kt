@@ -1,4 +1,4 @@
-package com.submission.dicoding.core.ui
+package com.submission.dicoding.gamecatalogue.ui.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -6,12 +6,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.submission.dicoding.core.R
-import com.submission.dicoding.core.databinding.ItemGameBinding
 import com.submission.dicoding.core.domain.model.Games
 import com.submission.dicoding.core.utils.ItemClickCallback
 import com.submission.dicoding.core.utils.setImageUrl
 import com.submission.dicoding.core.utils.setVisibility
+import com.submission.dicoding.gamecatalogue.R
+import com.submission.dicoding.gamecatalogue.databinding.ItemGameBinding
 
 class GameAdapter(val callback: ItemClickCallback? = null) :
     ListAdapter<Games, GameAdapter.VerticalViewHolder>(DIFF_CALLBACK) {

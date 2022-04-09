@@ -87,7 +87,7 @@ class DetailGameFragment : Fragment() {
                     it,
                     game.image,
                     pbImage,
-                    com.submission.dicoding.core.R.drawable.ic_baseline_broken_image_24
+                    R.drawable.ic_baseline_broken_image_24,
                 )
             }
             tvTittle.text = game.name
@@ -129,7 +129,7 @@ class DetailGameFragment : Fragment() {
                     it,
                     game.image,
                     pbImage,
-                    com.submission.dicoding.core.R.drawable.ic_baseline_broken_image_24
+                    R.drawable.ic_baseline_broken_image_24
                 )
             }
             tvTittle.text = game.name
