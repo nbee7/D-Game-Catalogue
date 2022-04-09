@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -22,8 +21,6 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class SearchGameFragment : Fragment(), ItemClickCallback {
 
     private val searchGameViewModel: SearchGameViewModel by viewModel()
-
-    private var toast: Toast? = null
 
     private var _binding: FragmentSearchGameBinding? = null
     private val binding get() = _binding
@@ -100,12 +97,7 @@ class SearchGameFragment : Fragment(), ItemClickCallback {
     }
 
     private fun showError(message: String?) {
-        if (toast != null) {
-            toast?.cancel()
-        } else {
-            toast = Toast.makeText(context, message, Toast.LENGTH_SHORT)
-            toast?.show()
-        }
+        binding?.tvError?.text = message
     }
 
     override fun onItemClicked(id: Int) {
@@ -113,18 +105,9 @@ class SearchGameFragment : Fragment(), ItemClickCallback {
         findNavController().navigate(action)
     }
 
-    override fun onStop() {
-        super.onStop()
-        if (toast != null) {
-            toast?.cancel()
-        }
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        if (toast != null) {
-            toast?.cancel()
-        }
     }
 }

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
@@ -23,7 +22,6 @@ class DetailGameFragment : Fragment() {
     private val detailGameFragmentArgs: DetailGameFragmentArgs by navArgs()
     private var _binding: FragmentDetailGameBinding? = null
     private val binding get() = _binding
-    private var toast: Toast? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -103,21 +101,9 @@ class DetailGameFragment : Fragment() {
                 if (isFavorite) {
                     isFavorite = !isFavorite
                     detailGameViewModel.setFavoriteGame(game, isFavorite)
-                    toast = Toast.makeText(
-                        context,
-                        getString(R.string.message_remove_favorite),
-                        Toast.LENGTH_SHORT
-                    )
-                    toast?.show()
                 } else {
                     isFavorite = !isFavorite
                     detailGameViewModel.setFavoriteGame(game, isFavorite)
-                    toast = Toast.makeText(
-                        context,
-                        getString(R.string.message_add_favorite),
-                        Toast.LENGTH_SHORT
-                    )
-                    toast?.show()
                 }
             }
         }
@@ -146,22 +132,10 @@ class DetailGameFragment : Fragment() {
                     isFavorite = !isFavorite
                     setFavorite(isFavorite)
                     detailGameViewModel.insertGameFromSearch(game, isFavorite)
-                    toast = Toast.makeText(
-                        context,
-                        getString(R.string.message_remove_favorite),
-                        Toast.LENGTH_SHORT
-                    )
-                    toast?.show()
                 } else {
                     isFavorite = !isFavorite
                     setFavorite(isFavorite)
                     detailGameViewModel.insertGameFromSearch(game, isFavorite)
-                    toast = Toast.makeText(
-                        context,
-                        getString(R.string.message_add_favorite),
-                        Toast.LENGTH_SHORT
-                    )
-                    toast?.show()
                 }
             }
         }
@@ -176,12 +150,7 @@ class DetailGameFragment : Fragment() {
     }
 
     private fun showError(message: String?) {
-        if (toast != null) {
-            toast?.cancel()
-        } else {
-            toast = Toast.makeText(context, message, Toast.LENGTH_SHORT)
-            toast?.show()
-        }
+        binding?.tvError?.text = message
     }
 
     private fun setFavorite(state: Boolean) {
@@ -204,18 +173,8 @@ class DetailGameFragment : Fragment() {
         }
     }
 
-    override fun onStop() {
-        super.onStop()
-        if (toast != null) {
-            toast?.cancel()
-        }
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        if (toast != null) {
-            toast?.cancel()
-        }
     }
 }
