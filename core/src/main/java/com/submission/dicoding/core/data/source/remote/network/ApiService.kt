@@ -19,7 +19,6 @@ interface ApiService {
     @GET("games")
     suspend fun searchGames(
         @Query("search") query: String,
-        @Query("page_size") size: Int = Constant.PAGE_SIZE,
         @Query("key") key: String = BuildConfig.API_KEY
     ): ListGamesResponse
 
