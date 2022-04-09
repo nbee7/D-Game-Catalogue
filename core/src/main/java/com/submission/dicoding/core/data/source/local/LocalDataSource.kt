@@ -26,6 +26,4 @@ class LocalDataSource(private val gameDao: GameDao) {
 
     fun getFavoriteGames(): Flow<List<GameEntity>> = gameDao.getFavoriteGames()
 
-    fun getSearchGame(name: String): Flow<List<GameEntity>> = gameDao.getSearchGame(name)
-
 }
