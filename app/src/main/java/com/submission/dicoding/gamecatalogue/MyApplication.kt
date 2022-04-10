@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.submission.dicoding.gamecatalogue
 
 import android.app.Application

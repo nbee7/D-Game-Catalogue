@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:src="@drawable/sample_background_item"
+            tools:src="@tools:sample/backgrounds/scenic"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription" />
 

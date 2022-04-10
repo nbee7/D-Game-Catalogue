@@ -1,17 +1,15 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">D-Game Catalogue</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="description">Description</string>
     <string name="released">Released</string>
-    <string name="favorites">Favorites</string>
     <string name="home">Home</string>
     <string name="discover">Discover</string>
     <string name="rating">%s / 5</string>
-    <string name="title_favorite">Favorite</string>
-    <string name="add_favorite">add favorite</string>
     <string name="Favorite">Favorite</string>
     <string name="txt_search_game">Search Game</string>
+    <string name="title_favorite" tools:keep="@string/title_favorite">Favorite</string>
     <string name="data_empty">Data Empty</string>
-    <string name="message_add_favorite">Success Add Game to Favorite</string>
-    <string name="message_remove_favorite">Success Remove Game From Favorite</string>
+    <string name="message_add_favorite" tools:keep="@string/message_add_favorite">Success Add Game to Favorite</string>
+    <string name="message_remove_favorite" tools:keep="@string/message_remove_favorite">Success Remove Game From Favorite</string>
+    <string name="add_favorite">Action Button Add Favorite</string>
 </resources>
